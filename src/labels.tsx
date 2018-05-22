@@ -8,32 +8,33 @@ import { setDirection } from '@voiceofamerica/voa-shared/helpers/textDirectionHe
 import { Audience } from 'helpers/graphql-types'
 
 setAnalyticsOptions({
-  language: 'english',
-  languageService: 'english',
-  propertyName: 'english',
+  language: 'Urdu',
+  languageService: 'VOA Urdu',
+  propertyName: 'Urdu App',
   propertyId: 'something',
   rsidAccount: 'something',
   reportSuite: 'something',
 })
-setDirection('ltr')
+setDirection('rtl')
 
-export const graphqlAudience = Audience.enus
+export const graphqlAudience = Audience.ur
 
-moment.locale('en-us')
+moment.locale('ur')
 
 export const articleLabels = {
   updatedOn: (date: string) => `Updated on ${date}`,
-  relatedContent: 'Related stories',
-  shareMessage: '',
-  galleryLoading: 'Gallery loading...',
+  relatedContent: 'اسی بارے میں',
+  shareMessage: 'یہ بھی دیکھیں',
+  galleryLoading: 'لوڈ ہو رہا ہے',
 }
 
 export const categorySettingsLabels = {
-  header: 'Choose Categories',
-  myCategories: 'My Categories',
-  allCategories: 'All Categories',
-  dragAndDrop: 'Drag Categories',
-  headlinesFirst: 'Headline Category is First',
+  header: 'کیٹگریز کی ترتیب بدلیں',
+  myCategories: 'میری کیٹگریز',
+  allCategories: 'تمام کیٹگریز',
+  dragAndDrop: 'اپنی کیٹگیز کو یہاں لائیں',
+  headlinesFirst: 'ہیڈلائنز پہلے لسٹ کی گئی ہیں',
+  cancel: 'Cancel',
 }
 
 export const circumventionDrawerLabels = {
@@ -45,95 +46,83 @@ export const circumventionDrawerLabels = {
 }
 
 export const editorsChoiceLabels = {
-  header: 'Editor\'s Choice',
+  header: 'ایڈیٹر کا انتخاب',
+  empty: 'اس صفحے پر آپ کو وہ خبریں ملیں گی جنہیں ایڈیٹر نے موضوع یا اہمیت کے اعتبار سے منتخب کیا ہے۔',
 }
 
 export const errorBoundaryLabels = {
-  error: 'An error occurred.',
-  retry: 'Retry',
+  error: 'کچھ غلط ہو گیا۔ ری لوڈ کریں',
+  retry: 'پھر کوشش کریں',
 }
 
 export const favoritesSettingsLabels = {
-  header: 'My Favorites',
-  removeAll: 'Remove All Favorites',
+  header: 'پسندیدہ',
+  removeAll: 'سب ڈیلیٹ کریں',
 }
 
 export const homeLabels = {
-  headlines: 'Headlines',
-  search: 'Search',
+  headlines: 'اہم خبریں',
+  search: 'سرچ',
   manage: '+',
 }
 
 export const introLabels = {
-  content: 'Welcome to Voice of America!',
-  continue: 'Continue',
-}
-
-const hilight: React.CSSProperties = {
-  color: '#0162B1',
+  content: 'وی او اے اردو کی ایپ پر خوش آمدید۔ یہاں آپ کو ملیں گی دنیا بھر کی تازہ تریں خبریں۔ اہم واقعات پر رپورٹس اور ساتھ ہی ہمارے ٹی وی اور ریڈیو پروگرام۔',
+  continue: 'آگے جائیں',
 }
 
 export const mediaPlayerLabels = {
   empty: (
     <div>
       <p>
-        This is VoA's <span style={hilight}>multimedia</span> player. When you play audio or video content, it will play here.
-      </p>
-      <p>
-        You can continue to navigate the app without stopping the <span style={hilight}>multimedia</span> by closing the drawer.
-      </p>
-      <p>
-        Use the round <span style={hilight}>multimedia</span> button at the bottom of the screen to open this screen again.
-      </p>
-      <p>
-        You can also start and stop the <span style={hilight}>multimedia</span> by pressing the button at the bottom while this screen is open.
+        ویڈیو یا آڈیو لوڈ کرنے کے لیے نیچے دی گئی لسٹ سے منتخب کریں
       </p>
     </div>
   ),
-  loading: 'Loading media...',
+  loading: 'لوڈ ہو رہا ہے',
 }
 
 export const mediaSettingsLabels = {
-  normalSpeed: '1x',
-  halfAgainSpeed: '1.5x',
-  doubleSpeed: '2x',
-  chooseSpeed: 'Media playback speed',
+  normalSpeed: 'نارمل',
+  halfAgainSpeed: '1.5',
+  doubleSpeed: '2',
+  chooseSpeed: 'پلے بیک سپیڈ',
 }
 
 export const programsScreenLabels = {
-  videos: 'Video',
-  audio: 'Audio',
-  empty: 'No content',
+  videos: 'آن ڈیمانڈ آڈیو',
+  audio: 'آن ڈیمانڈ ویڈیو',
+  empty: 'کوئی پروگرام موجود نہیں',
 }
 
 export const pullToRefreshLabels = {
-  pull: 'Pull to refresh',
-  release: 'Release to refresh',
+  pull: 'ریفریش کے لیے نیچے سوائپ کریں',
+  release: 'ریفریش کے لیے ریلیز کریں',
 }
 
 export const searchLabels = {
-  header: 'Search',
-  back: 'Back',
-  all: 'All',
-  query: 'Search',
-  empty: 'No content',
+  header: 'سرچ',
+  back: 'پیچھے',
+  all: 'تمام',
+  query: 'سرچ',
+  empty: 'آپ کی سرچ سے ملتا جلتا کوئی صفحہ موجود نہیں',
 }
 
 export const settingsLabels = {
-  header: 'My Settings',
-  panic: 'Reset the App',
-  sendToFriends: 'Share with friends',
-  sendFeedback: 'Send us feedback',
-  aboutVoa: 'The Voice of America (VOA) publishes accurate, balanced, and comprehensive news and information to an international audience. It started in 1942 as a radio news service for people living in closed and war-torn societies and has since grown into a multimedia news operation. VOA now reaches people on web, mobile devices and social media in more than 40 languages.',
-  feedbackEmail: 'app@voanews.com',
-  feedbackSubject: encodeURIComponent('VOA Mobile App'),
+  header: 'میری سیٹنگز',
+  panic: 'ختم کریں',
+  sendToFriends: 'یہ ایپ اپنے دوستوں کو بھیجیں',
+  sendFeedback: 'وی او اے کو اپنی رائے بھیجیں',
+  aboutVoa: 'وائس آف امریکہ اردو اپنے بین القوامی ناظرین کے لیے ویب، سوشل میڈیا، ٹی وی اور ریڈیو کے زریعے درست، متوازن اور جامع خبریں پیش کرتا ہے۔ ',
+  feedbackEmail: 'uwe@voanews.com',
+  feedbackSubject: encodeURIComponent('عنوان'),
   feedbackBody: encodeURIComponent(''),
-  shareMessage: 'Check out the VOA mobile app',
+  shareMessage: 'یہ ایپ دیکھیں',
 }
 
 export const textSettingsLabels = {
-  textSize: 'Article font size',
-  normalSize: '1x',
-  largeSize: '1.5x',
-  hugeSize: '2x',
+  textSize: 'فانٹ سائز منتخب کریں',
+  normalSize: 'چھوٹا',
+  largeSize: 'درمیانہ',
+  hugeSize: 'بڑا',
 }
