@@ -44,11 +44,11 @@ const actors: ActorMap<AppSettings> = {
 export const INITIAL_STATE: AppSettings = {
   categories: [
     {
-      id: 5950,
+      id: 2269,
       name: 'پاکستان',
     },
     {
-      id: 5951,
+      id: 2186,
       name: 'امریکہ',
     },
     {
@@ -68,11 +68,11 @@ export const INITIAL_STATE: AppSettings = {
       name: 'دنیا',
     },
     {
-      id: 5954,
+      id: 2272,
       name: 'کھیل',
     },
     {
-      id: 5953,
+      id: 2258,
       name: 'آرٹ',
     },
   ],
