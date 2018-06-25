@@ -12,14 +12,28 @@ import { programsScreenLabels } from 'labels'
 import TopNavTheme from './TopNavTheme'
 import Params from './Params'
 import VideoPrograms from './VideoPrograms'
+import AudioPrograms from './AudioPrograms'
 import { programsScreen, programTypeNav, typeItem, active } from './ProgramsScreen.scss'
 
 type ProgramType = 'audio' | 'video'
 
 const VIDEO: ProgramType = 'video'
+const AUDIO: ProgramType = 'audio'
+
 const DEFAULT = VIDEO
 
-const PROGRAM_ZONES: Category[] = [
+const VIDEO_ZONES: Category[] = [
+  {
+    id: 0,
+    name: 'تمام پروگرام',
+  },
+  {
+    id: 2683,
+    name: 'ویڈیو',
+  },
+]
+
+const AUDIO_ZONES: Category[] = [
   {
     id: 0,
     name: 'تمام پروگرام',
@@ -52,6 +66,8 @@ class ProgramsScreen extends React.Component<Props> {
     const { type = DEFAULT } = match.params
     if (type === VIDEO) {
       return <VideoPrograms history={history} zoneId={this.getZoneId()} />
+    } else if (type === AUDIO) {
+      return <AudioPrograms history={history} zoneId={this.getZoneId()} />
     } else {
       throw new Error(`Invalid programType ${type}`)
     }
@@ -65,18 +81,45 @@ class ProgramsScreen extends React.Component<Props> {
         <div className={type === VIDEO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(VIDEO)}>
           {programsScreenLabels.videos}
         </div>
+        <div className={type === AUDIO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(AUDIO)}>
+          {programsScreenLabels.audio}
+        </div>
       </div>
     )
   }
 
-  renderTopNav () {
+  render () {
+    return (
+      <div className={programsScreen}>
+        {this.renderTopNav()}
+        <ErrorBoundary>
+          {this.renderPrograms()}
+        </ErrorBoundary>
+        {this.renderProgramTypes()}
+      </div>
+    )
+  }
+
+  private renderTopNav () {
+    const { type = DEFAULT } = this.props.match.params
+
+    if (type === VIDEO) {
+      return this.renderTopNavFromItems(VIDEO_ZONES)
+    } else if (type === AUDIO) {
+      return this.renderTopNavFromItems(AUDIO_ZONES)
+    } else {
+      throw new Error(`Unrecognized program type ${type}`)
+    }
+  }
+
+  private renderTopNavFromItems (items: Category[]) {
     const zoneId = this.getZoneId()
 
     return (
       <ThemeProvider value={TopNavTheme}>
         <TopNav flex>
           {
-            PROGRAM_ZONES.map(({ id, name }) => {
+            items.map(({ id, name }) => {
               const selected = zoneId === id
 
               return (
@@ -96,20 +139,8 @@ class ProgramsScreen extends React.Component<Props> {
     )
   }
 
-  render () {
-    return (
-      <div className={programsScreen}>
-        {this.renderTopNav()}
-        <ErrorBoundary>
-          {this.renderPrograms()}
-        </ErrorBoundary>
-        {this.renderProgramTypes()}
-      </div>
-    )
-  }
-
   private getZoneId = () => {
-    const { zone = PROGRAM_ZONES[0].id } = this.props.match.params
+    const { zone = 0 } = this.props.match.params
     return typeof zone === 'number' ? zone : parseInt(zone, 10)
   }
 }
