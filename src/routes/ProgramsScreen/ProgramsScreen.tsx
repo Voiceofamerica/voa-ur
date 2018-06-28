@@ -46,13 +46,12 @@ interface Props extends RouteComponentProps<Params>, AnalyticsProps {
 class ProgramsScreen extends React.Component<Props> {
   setProgramType = (programType: ProgramType) => {
     const { history, match } = this.props
-    const { zone } = match.params
 
-    if (zone) {
-      history.replace(`/programs/${programType}/${zone}`)
-    } else {
-      history.replace(`/programs/${programType}`)
+    if (match.params.type === programType) {
+      return
     }
+
+    history.replace(`/programs/${programType}`)
   }
 
   setZoneId = (zoneId: number) => {
@@ -81,9 +80,11 @@ class ProgramsScreen extends React.Component<Props> {
         <div className={type === VIDEO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(VIDEO)}>
           {programsScreenLabels.videos}
         </div>
+        {/*
         <div className={type === AUDIO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(AUDIO)}>
           {programsScreenLabels.audio}
         </div>
+        */}
       </div>
     )
   }
