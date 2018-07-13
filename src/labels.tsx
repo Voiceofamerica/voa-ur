@@ -12,8 +12,8 @@ setAnalyticsOptions({
   languageService: 'VOA Urdu',
   propertyName: 'Urdu App',
   propertyId: 'something',
-  rsidAccount: 'something',
-  reportSuite: 'something',
+  rsidAccount: 'bbgvoa.urdu.streaming.app',
+  reportSuite: 'bbgvoa.urdu.streaming.app',
 })
 setDirection('rtl')
 
