@@ -7,7 +7,6 @@ import ResilientImage from '@voiceofamerica/voa-shared/components/ResilientImage
 import SvgIcon from '@voiceofamerica/voa-shared/components/SvgIcon'
 
 import toggleMediaDrawer from 'redux-store/actions/toggleMediaDrawer'
-import toggleCircumventionDrawer from 'redux-store/actions/toggleCircumventionDrawer'
 import toggleMediaPlaying from 'redux-store/actions/toggleMediaPlaying'
 import AppState from 'types/AppState'
 
@@ -98,7 +97,6 @@ const mapStateToProps = (state: AppState): StateProps => ({
 const mapDispatchToProps = (dispatch: Dispatch<AppState>): DispatchProps => ({
   toggleMediaPlayer: () => {
     dispatch(toggleMediaDrawer({}))
-    dispatch(toggleCircumventionDrawer({ open: false }))
   },
   togglePlay: () => dispatch(toggleMediaPlaying({})),
 })

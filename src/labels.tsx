@@ -37,14 +37,6 @@ export const categorySettingsLabels = {
   cancel: 'Cancel',
 }
 
-export const circumventionDrawerLabels = {
-  content: (
-    <div>
-      Your connection is secured via a VPN.
-    </div>
-  ),
-}
-
 export const editorsChoiceLabels = {
   header: 'ایڈیٹر کا انتخاب',
   empty: 'اس صفحے پر آپ کو وہ خبریں ملیں گی جنہیں ایڈیٹر نے موضوع یا اہمیت کے اعتبار سے منتخب کیا ہے۔',
