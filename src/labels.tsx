@@ -113,7 +113,7 @@ export const settingsLabels = {
   panic: 'ختم کریں',
   sendToFriends: 'یہ ایپ اپنے دوستوں کو بھیجیں',
   sendFeedback: 'وی او اے کو اپنی رائے بھیجیں',
-  aboutVoa: 'وائس آف امریکہ اردو اپنے بین القوامی ناظرین کے لیے ویب، سوشل میڈیا، ٹی وی اور ریڈیو کے زریعے درست، متوازن اور جامع خبریں پیش کرتا ہے۔ ',
+  aboutVoa: 'وائس آف امریکہ اردو اپنے بین القوامی ناظرین کےلیے ویب، سوشل میڈیا، ٹی وی،اور ریڈیو کے ذریعے درست، متوازن اور جامع خبریں کرتا ہے۔',
   feedbackEmail: 'uwe@voanews.com',
   feedbackSubject: encodeURIComponent('عنوان'),
   feedbackBody: encodeURIComponent(''),
