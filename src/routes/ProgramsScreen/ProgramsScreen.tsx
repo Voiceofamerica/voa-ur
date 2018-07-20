@@ -38,6 +38,34 @@ const AUDIO_ZONES: Category[] = [
     id: 0,
     name: 'تمام پروگرام',
   },
+  {
+    id: 2409,
+    name: '7:00PM اردو نیوز شو',
+  },
+  {
+    id: 2473,
+    name: '8:00PM جہاں رنگ',
+  },
+  {
+    id: 2475,
+    name: '9:00PM - راؤنڈ ٹیبل',
+  },
+  {
+    id: 2724,
+    name: 'آواز دوست',
+  },
+  {
+    id: 2725,
+    name: 'ہردم رواں ہے زندگی',
+  },
+  {
+    id: 2726,
+    name: 'کچھ تو کہیے',
+  },
+  {
+    id: 2728,
+    name: 'خط آپ کے',
+  },
 ]
 
 interface Props extends RouteComponentProps<Params>, AnalyticsProps {
