@@ -108,11 +108,9 @@ class ProgramsScreen extends React.Component<Props> {
         <div className={type === VIDEO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(VIDEO)}>
           {programsScreenLabels.videos}
         </div>
-        {/*
         <div className={type === AUDIO ? `${typeItem} ${active}` : typeItem} onClick={() => this.setProgramType(AUDIO)}>
           {programsScreenLabels.audio}
         </div>
-        */}
       </div>
     )
   }
