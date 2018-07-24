@@ -34,7 +34,7 @@ export const categorySettingsLabels = {
   allCategories: 'تمام کیٹگریز',
   dragAndDrop: 'اپنی کیٹگیز کو یہاں لائیں',
   headlinesFirst: 'ہیڈلائنز پہلے لسٹ کی گئی ہیں',
-  cancel: 'Cancel',
+  cancel: 'منسوخ',
 }
 
 export const editorsChoiceLabels = {
