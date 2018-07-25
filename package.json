@@ -6,7 +6,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "setup": "run-s setup:*",
+    "setup": "cordova prepare && cordova prepare && cordova prepare && npm run copy:assets",
     "setup:ios": "cordova prepare ios && cordova prepare ios && cordova prepare ios && npm run copy:assets:ios",
     "setup:android": "cordova prepare android && cordova prepare android && cordova prepare android && npm run copy:assets:android",
     "start:web": "NODE_ENV='host' webpack-dev-server --hot",
