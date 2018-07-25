@@ -10,7 +10,7 @@ import { Audience } from 'helpers/graphql-types'
 setAnalyticsOptions({
   language: 'Urdu',
   languageService: 'VOA Urdu',
-  propertyName: 'Urdu App',
+  propertyName: 'voa urdu news pp',
   propertyId: 'something',
   rsidAccount: 'bbgvoa.urdu.streaming.app',
   reportSuite: 'bbgvoa.urdu.streaming.app',
