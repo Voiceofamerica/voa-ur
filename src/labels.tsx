@@ -11,7 +11,7 @@ setAnalyticsOptions({
   language: 'Urdu',
   languageService: 'VOA Urdu',
   propertyName: 'voa urdu news pp',
-  propertyId: 'something',
+  propertyId: '355',
   rsidAccount: 'bbgvoa.urdu.streaming.app',
   reportSuite: 'bbgvoa.urdu.streaming.app',
 })
@@ -82,8 +82,8 @@ export const mediaSettingsLabels = {
 }
 
 export const programsScreenLabels = {
-  videos: 'آن ڈیمانڈ آڈیو',
-  audio: 'آن ڈیمانڈ ویڈیو',
+  videos: 'آن ڈیمانڈ ویڈیو',
+  audio: 'آن ڈیمانڈ آڈیو',
   empty: 'کوئی پروگرام موجود نہیں',
 }
 
