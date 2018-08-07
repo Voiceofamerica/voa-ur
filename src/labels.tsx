@@ -7,6 +7,8 @@ import { setDirection } from '@voiceofamerica/voa-shared/helpers/textDirectionHe
 
 import { Audience } from 'helpers/graphql-types'
 
+export const defaultAppTopic = 'ur'
+
 setAnalyticsOptions({
   language: 'Urdu',
   languageService: 'VOA Urdu',

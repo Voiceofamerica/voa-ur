@@ -2,15 +2,20 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { ApolloProvider } from 'react-apollo'
+import { push } from 'react-router-redux'
+
+import { showControls } from '@voiceofamerica/voa-shared/helpers/mediaControlHelper'
+import { deviceIsReady } from '@voiceofamerica/voa-shared/helpers/cordovaHelper'
+import { initializeNotifications, coldStartSubject, notificationSubject } from '@voiceofamerica/voa-shared/helpers/pushNotificationHelper'
+import setNotificationStatus from '@voiceofamerica/voa-shared/redux/actions/setNotificationStatus'
+import NotificationToast from '@voiceofamerica/voa-shared/components/NotificationToast'
 
 import store, { renderReady } from 'redux-store'
 import Router from 'containers/Router'
 import MediaPlayer from 'containers/MediaPlayer'
 import Intro from 'containers/Intro'
 import client from 'helpers/graphql-client'
-import { showControls } from '@voiceofamerica/voa-shared/helpers/mediaControlHelper'
-import { scheduleDaily } from 'helpers/localNotifications'
-import { deviceIsReady } from '@voiceofamerica/voa-shared/helpers/cordovaHelper'
+import { defaultAppTopic } from 'labels'
 
 import { app } from './App.scss'
 
@@ -26,9 +31,24 @@ export default class App extends React.Component<{}, State> {
   componentDidMount () {
     renderReady.then(() => {
       const appState = store.getState()
-      if (appState.settings.dailyNotificationOn) {
-        scheduleDaily().catch(err => console.error(err))
-      }
+
+      initializeNotifications(defaultAppTopic)
+        .subscribe(status => {
+          if (status.initialized && status.subscriptions.length > 0) {
+            store.dispatch(setNotificationStatus({ shouldGetPushNotifications: true }))
+          }
+        })
+
+      notificationSubject.subscribe(notification => {
+        console.log('notification', notification)
+      })
+
+      coldStartSubject.subscribe(notification => {
+        console.log('coldStart', notification)
+        if (notification.additionalData.articleId) {
+          this.goToArticle(notification.additionalData.articleId)
+        }
+      })
 
       if (!__HOST__) {
         deviceIsReady
@@ -62,6 +82,7 @@ export default class App extends React.Component<{}, State> {
             appReady
             ? <div key='app' className={app}>
                 <Intro />
+                <NotificationToast goToArticle={this.goToArticle} />
                 <Router />
                 <MediaPlayer />
               </div>
@@ -70,6 +91,10 @@ export default class App extends React.Component<{}, State> {
         </Provider>
       </ApolloProvider>
     )
+  }
+
+  private goToArticle = (articleId: string) => {
+    store.dispatch(push(`/article/${articleId}`))
   }
 
   private ready = () => {
