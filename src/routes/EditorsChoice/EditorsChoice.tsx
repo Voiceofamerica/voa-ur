@@ -68,6 +68,7 @@ class EditorsChoiceBase extends React.Component<Props, State> {
     const { history } = this.props
     history.push(route)
   }
+
 }
 
 const withAnalytics = analytics<QueryProps>(({ data }) => ({
