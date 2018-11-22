@@ -45,6 +45,7 @@
     "prepare:ios": "cordova prepare ios && npm run copy:assets:ios && cordova build ios",
     "build:ios": "npm run build:webpack && cordova build ios",
     "scss:types": "tcm -p './src/{components,containers,routes}/**/*.scss'",
+    "pod:install": "cd platforms/ios; pod setup && cordova prepare ios && pod install",
     "scss:types:watch": "npm run scss:types -- -w",
     "cordova:prepare": "cordova prepare",
     "gql:types": "apollo-codegen generate src/**/*.graphql --schema node_modules/@voiceofamerica/voa-core-shared/introspect/schema.json --target typescript --output src/helpers/graphql-types.ts"
